@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+/* || Fonts */
+
+@font-face {
+  font-family: 'Lilita One Regular';
+  src: url('./assets/fonts/lilitaone-regular-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Nougat Extra Black';
+  src: url('./assets/fonts/nougat-extrablack-webfont.ttf') format('truetype'); 
+}
+
+/* || Reset */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, svg, video, canvas {
+  display: block;
+  max-width: 100%;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+overflow-wrap: break-word;
+}
+
+input, button, textarea, select {
+font: inherit;
+}
+
+/* Base */
+
+body {  
+  height: 100vh;
+  font-family: 'Lilita One Regular';
+}
