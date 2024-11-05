@@ -1,16 +1,25 @@
 .main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .cards-container {
+  grid-column: 2 / 3;
   display: grid;
   grid-template-columns: repeat(4, min-content);
   grid-template-rows: auto;
   gap: 1em;
   padding: 1em;
   padding-top: 2em;
+}
+
+.score-panel {
+  color: white;
+  font-size: 2rem;
+  padding: 1em;
+  text-shadow: 3px 0 black, -3px 0 black, 0 3px black, 0 -3px black,
+  2px 2px black, -2px -2px black, 2px -2px black, -2px 2px black;
+
 }
 
 @media (max-width: 1024px) {
