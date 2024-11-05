@@ -1,5 +1,8 @@
 function onSucces(data) {
-  data.list.map((brawler) => brawler.isHit = false)
+  data.list.map((brawler) => { 
+    brawler.isHit = false
+    brawler.hit = () => { brawler.isHit = true }
+  })
   return data.list
 }
 
