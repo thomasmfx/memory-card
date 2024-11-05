@@ -1,5 +1,5 @@
 function onSucces(data) {
-  data.list.map((brawler) => brawler.isHit = 0)
+  data.list.map((brawler) => brawler.isHit = false)
   return data.list
 }
 
