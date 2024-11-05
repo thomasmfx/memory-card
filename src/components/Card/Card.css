@@ -1,0 +1,43 @@
+.card {
+  width: min-content;
+  border: 10px solid black;
+  border-radius: 25px;
+  aspect-ratio: 1 / 1.3;
+}
+
+.card-brawler-image {
+  max-width: 150px;
+  padding: 1em;
+}
+
+.card-brawler-name {
+  text-align: center;
+  font-size: 2rem;
+  color: black;
+}
+
+.outer-card {
+  width: 100%;
+  height: 100%;
+
+  background-color: white;
+  border-radius: 15px;
+  padding: 1em;
+}
+
+.inner-card--flipped {
+  border: 5px solid #075AAD;
+  background-color: #0086FC;
+}
+
+.inner-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border: 5px solid #CED6EC;
+  background-color: #DDE7FD;
+  border-radius: 10px;
+}
