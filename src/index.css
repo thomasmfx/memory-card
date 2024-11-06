@@ -47,6 +47,6 @@ font: inherit;
   min-height: 100vh;
   width: 100vw;
   font-family: 'Lilita One Regular';
-  background-image: url(./assets/tara_bazaar_lobby.png);
+  background-image: url(src/assets/images/tara_bazaar_lobby.png);
   background-size: cover;
 }
