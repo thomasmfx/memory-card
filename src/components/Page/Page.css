@@ -8,7 +8,7 @@
   display: grid;
   grid-template-columns: repeat(4, min-content);
   grid-template-rows: auto;
-  gap: 1em;
+  gap: 2.5em;
   padding: 1em;
   padding-top: 2em;
 }
@@ -22,11 +22,18 @@
 
 }
 
+.tara-pin {
+  width: 128px;
+}
+
 @media (max-width: 1440px) {
   .score-panel {
     grid-row: 1 / 2;
     grid-column: 2 / 3;
     justify-self: center;
+
+    display: flex;
+    flex-direction: row-reverse;
   }
 }
 
@@ -49,5 +56,9 @@
 
   .score-panel {
     font-size: 1.8rem;
+  }
+
+  .tara-pin {
+    display: none;
   }
 }
