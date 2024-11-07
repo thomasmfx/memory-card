@@ -1,18 +1,23 @@
 import './Page.css'
+import { useState, useEffect } from 'react'
 import useSound from 'use-sound';
+
 import Footer from './Footer/Footer'
 import Card from '../Card/Card'
 import SoundButton from '../SoundButton/SoundButton'
-import { useState, useEffect } from 'react'
+
+import taraPin from '../../assets/images/tara_pin.png'
+import taraGgPin from '../../assets/images/tara_gg_pin.png';
+import taraClapPin from '../../assets/images/tara_clap_pin.png';
+import taraFacepalmPin from '../../assets/images/tara_facepalm_pin.png';
+import taraPhewPin from '../../assets/images/tara_phew_pin.png';
+import flipCardsSoundUrl from '../../../public/audios/flipcard-sound.mp3';
+import shufflingCardsSoundUrl from '../../../public/audios/shuffling-cards-audio.mp3';
+import backgorundMusicUrl from '../../../public/audios/brawzaar_menu-audio.wav';
+
 import { retrieveFromLocalStorage, saveToLocalStorage } from '../../utils/localStorage'
 import { pickRandom, shuffleArray } from '../../utils/arrayMethods'
 import { fetchBrawlers } from '../../services/api'
-
-const taraPin = 'src/assets/images/tara_pin.png';
-const taraGgPin = 'src/assets/images/tara_gg_pin.png';
-const taraClapPin = 'src/assets/images/tara_clap_pin.png';
-const taraFacepalmPin = 'src/assets/images/tara_facepalm_pin.png';
-const taraPhewPin = 'src/assets/images/tara_phew_pin.png';
 
 export default function Page() {
   const [bestScore, setBestScore] = useState(retrieveFromLocalStorage('bestScore', 0));
@@ -23,8 +28,8 @@ export default function Page() {
   const [currentTaraPin, setCurrentTaraPin] = useState(taraPin)
 
   const [isSoundActive, setIsSoundActive] = useState(true);
-  const [flipCardsSound] = useSound('public/audios/flipcard-sound.mp3', {volume: 2})
-  const [shufflingCardsSound] = useSound('public/audios/shuffling-cards-audio.mp3', {volume: 3})
+  const [flipCardsSound] = useSound(flipCardsSoundUrl, {volume: 2})
+  const [shufflingCardsSound] = useSound(shufflingCardsSoundUrl, {volume: 2})
   
   function playSound(sound) {
     sound()
@@ -144,7 +149,7 @@ export default function Page() {
         />
       </main>
       <Footer/>
-      {isSoundActive && <audio src={'public/audios/brawzaar_menu-audio.wav'} autoPlay loop={true} ></audio>}
+      {isSoundActive && <audio src={backgorundMusicUrl} autoPlay loop={true} ></audio>}
     </>
   )
 }

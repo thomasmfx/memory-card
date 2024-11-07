@@ -1,4 +1,6 @@
 import './SoundButton.css'
+import soundOnImgUrl from '../../assets/images/sound_on.svg'
+import soundOffImgUrl from '../../assets/images/sound_off.svg'
 
 export default function SoundButton({isSoundActive, onClick}) {
   return (
@@ -7,14 +9,14 @@ export default function SoundButton({isSoundActive, onClick}) {
         ? (
           <img 
             className="sound-image"
-            src="src/assets/images/sound_on.svg" 
+            src={soundOnImgUrl}
             alt="Sound on"
           />
         )
         : (
           <img
             className="sound-image" 
-            src="src/assets/images/sound_off.svg" 
+            src={soundOffImgUrl}
             alt="Sound off"
           />
         )
