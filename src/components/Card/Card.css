@@ -117,6 +117,20 @@
 }
 @media (max-width: 440px) {
   .card-container {
-    transform: none;
+    max-width: 150px;
   }
+
+  .card-brawler-image {
+    max-width: 110px;
+  }
+
+  .card-brawler-name {
+    font-size: 1.5rem;
+  }
+
+  .chip {
+    width: 70px;
+    height: 70px;
+  }
+
 }
