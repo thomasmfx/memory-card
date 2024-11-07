@@ -19,6 +19,8 @@
   padding: 1em;
   text-shadow: 3px 0 black, -3px 0 black, 0 3px black, 0 -3px black,
   2px 2px black, -2px -2px black, 2px -2px black, -2px 2px black;
+  align-items: center;
+  justify-content: center;
 
 }
 
@@ -51,14 +53,20 @@
 
 @media (max-width: 515px) {
   .cards-container {
-    grid-template-columns: repeat(1, min-content);
+    gap: 0;
   }
 
   .score-panel {
     font-size: 1.8rem;
-  }
 
-  .tara-pin {
-    display: none;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 440px) {
+  .cards-container {
+    grid-template-columns: repeat(1, min-content);
+    gap: 5em;
   }
 }

@@ -109,3 +109,14 @@
   font-size: 2rem;
   color: black;
 }
+
+@media (max-width: 515px) {
+  .card-container {
+    transform: scale(0.8);
+  }
+}
+@media (max-width: 440px) {
+  .card-container {
+    transform: none;
+  }
+}
