@@ -14,7 +14,9 @@ Have fun by visiting the project's oficial website: [tara-memory-card.vercel.app
 
 ## Preview
 
-![Project preview](public/tara-memory-card.gif)
+<div align="center">
+  <img src="public/tara-memory-card.gif" alt="Project preview's GIF"/>
+</div>
 
 
 ## Technologies
