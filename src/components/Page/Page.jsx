@@ -1,4 +1,5 @@
 import './Page.css'
+import useSound from 'use-sound';
 import Footer from './Footer/Footer'
 import Card from '../Card/Card'
 import SoundButton from '../SoundButton/SoundButton'
@@ -13,23 +14,31 @@ const taraClapPin = 'src/assets/images/tara_clap_pin.png';
 const taraFacepalmPin = 'src/assets/images/tara_facepalm_pin.png';
 const taraPhewPin = 'src/assets/images/tara_phew_pin.png';
 
-const backgroundSound = 'public/audios/brawzaar_menu-audio.wav';
-const shufflingCardsSound = 'public/audios/shuffling-cards-audio.mp3';
-const flipCardSound = 'public/audios/shuffling-cards-audio.mp3';
-
 export default function Page() {
+  const [bestScore, setBestScore] = useState(retrieveFromLocalStorage('bestScore', 0));
   const [deck, setDeck] = useState([]);
   const [score, setScore] = useState(0);
+  const [nextDeckScore, setNextDeckScore] = useState(12)
   const [showCardsFront, setShowCardsFront] = useState(false)
   const [currentTaraPin, setCurrentTaraPin] = useState(taraPin)
-  const [isSoundActive, setIsSoundActive] = useState(false);
 
-  let nextDeckMark = 11; // Have to check it before the last brawler is clicked
-  let bestScore = retrieveFromLocalStorage('bestScore')
-  if (bestScore == undefined) bestScore = 0;
+  const [isSoundActive, setIsSoundActive] = useState(true);
+  const [flipCardsSound] = useSound('public/audios/flipcard-sound.mp3', {volume: 2})
+  const [shufflingCardsSound] = useSound('public/audios/shuffling-cards-audio.mp3', {volume: 3})
+  
+  function playSound(sound) {
+    sound()
+  }
+
+  function toggleIsSoundActive() {
+    const newSoundStatus = !isSoundActive;
+    setIsSoundActive(newSoundStatus);
+    saveToLocalStorage('isSoundActive', newSoundStatus);
+  };
 
   useEffect(() => {
-    generateDeck()
+    generateDeck();
+    setIsSoundActive(retrieveFromLocalStorage('isSoundActive', true));
   }, [])
 
   function generateDeck() {
@@ -51,20 +60,26 @@ export default function Page() {
     }, (100));
   }
 
+  function isDeckOver() {
+    // Have to check it before the last brawler is clicked
+    return score === nextDeckScore - 1
+  }
+
   function resetGame() {
-    if (score > bestScore) saveToLocalStorage('bestScore', score)
+    let newBestScore = score > bestScore ? score : bestScore
+    saveToLocalStorage('bestScore', newBestScore);
+
+    setBestScore(newBestScore)
+    setNextDeckScore(12)
     setScore(0)
     setTimeout(() => {
       generateDeck()
     }, (500))
   }
 
-  function isDeckOver() {
-    return score === nextDeckMark
-  }
-
   function loadNextDeck() {
-    nextDeckMark += 12
+    playSound(shufflingCardsSound)
+    setNextDeckScore(nextDeckScore + 12)
     generateDeck()
     setCurrentTaraPin(taraClapPin)
   }
@@ -75,12 +90,14 @@ export default function Page() {
       if (brawler.id === brawlerClickedId) {
         if (brawler.isHit) {
           setCurrentTaraPin(taraFacepalmPin)
+          playSound(shufflingCardsSound)
           resetGame()
           return
         }
      
         brawler.hit()
         setScore(score + 1)
+        playSound(flipCardsSound)
 
         brawler.name === 'Tara'
           ? setCurrentTaraPin(taraPhewPin)
@@ -90,7 +107,7 @@ export default function Page() {
           isDeckOver()
             ? loadNextDeck()
             : shuffleDeck()
-        }, (400))
+        }, (300))
       }
     })
   
@@ -123,10 +140,11 @@ export default function Page() {
         </div>
         <SoundButton
           isSoundActive={isSoundActive}
-          onClick={() => setIsSoundActive(!isSoundActive)}
+          onClick={toggleIsSoundActive}
         />
       </main>
       <Footer/>
+      {isSoundActive && <audio src={'public/audios/brawzaar_menu-audio.wav'} autoPlay loop={true} ></audio>}
     </>
   )
 }
