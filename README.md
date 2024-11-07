@@ -1,8 +1,62 @@
-# React + Vite
+# Tara's Memory Card
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🌐 [EN-US](./README_en-us.md)
 
-Currently, two official plugins are available:
+## Descrição
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Tara's Memory Card é um jogo da memória simples baseado no jogo mobile Brawl Stars. O objetivo do jogo é testar as habilidades de memória do jogador, onde ele deve selecionar diferentes personagens sem repeti-los. Cada jogada certa aumenta a pontuação em 1, e a cada 12 jogadas certas um novo baralho é gerado, o jogo acaba apenas quando o jogador clicar duas vezes no mesmo personagem em um deck, resetando a pontuação.
+
+Esse projeto usa recursos do [Supercell Fankit](https://fankit.supercell.com/), e carrega imagens e informações de personagens utilizando a BrawlAPI do [Brawlify.com](https://brawlify.com/).
+
+## Website 
+
+Desfrute do projeto visitando o site oficial: [tara-memory-card.vercel.app](https://tara-memory-card.vercel.app/)
+
+## Prévia
+
+![Prévia do projeto](bin/tara-memory-card.gif)
+
+## Tecnologias
+
+- React
+- JavaScript
+- HTML
+- CSS
+
+## Como rodar o projeto
+
+Para rodar o projeto localmente, siga os seguintes passos:
+
+1. Clone o repositório:
+
+```
+git clone https://github.com/thomasmfx/memory-card.git
+```
+
+2. Navegue até o diretório do projeto:
+
+```
+cd memory-card
+```
+
+3. Instale as dependências:
+
+```
+npm install
+```
+
+4. Inicie o servidor de desenvolvimento:
+
+```
+npm run dev
+```
+
+5. O projeto estará disponível na porta exibida no terminal.
+
+## Créditos da API
+
+Esse projeto usa a API BrawlAPI do [Brawlify.com](https://brawlify.com/) para carregar imagens e informações de personagens do Brawl Stars. Para mais informações sobre a API, visite: [BrawlAPI](https://brawlapi.com/#/)
+
+***
+
+Este material é não oficial e não é patrocinado pela Supercell. Para mais informações, consulte a Política de Conteúdo de Fãs da Supercell: [www.supercell.com/fan-content-policy](www.supercell.com/fan-content-policy).
