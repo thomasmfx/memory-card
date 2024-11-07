@@ -39,21 +39,15 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .cards-container {
     grid-template-columns: repeat(3, min-content);
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   .cards-container {
     grid-template-columns: repeat(2, min-content);
-  }
-}
-
-@media (max-width: 515px) {
-  .cards-container {
-    gap: 0;
   }
 
   .score-panel {
@@ -64,8 +58,8 @@
   }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 375px) {
   .cards-container {
-    gap: 0;
+    grid-template-columns: repeat(2, min-content);
   }
 }
